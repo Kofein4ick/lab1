@@ -25,7 +25,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
         case 'binary_search':{
             k=1;
             while (1) {
-                if (Math.abs(bk-ak) <= l) {
+                if ((Math.abs(bk-ak) <= l)||(k==1000)) {
                     break;
                 }
 
@@ -68,7 +68,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                     <td>{func_in(mu).toFixed(5)}</td>
                 </tr>);
             while(1){
-                if (Math.abs(bk-ak) <= l) {
+                if ((Math.abs(bk-ak) <= l) ||(k==1000)){
                     break;
                 }
                 if (func_in(lambda) > func_in(mu)){
