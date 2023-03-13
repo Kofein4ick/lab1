@@ -114,7 +114,7 @@ const inputs= func==='func1' ?
       <p className='child'>Выбранная Функция {func}</p>
       {inputs}
       <p className='child'>Выбранные параметры {right}, {left}, {l}, {epsilon}, {n} </p>
-      <button onClick={buttonPush}>Погнали нахуй</button>
+      <button onClick={buttonPush}>OK</button>
       {table}
     </div>
   );
