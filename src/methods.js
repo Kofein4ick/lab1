@@ -121,12 +121,12 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                 if (func_in(lambda) > func_in(mu)){
                     ak = lambda;
                     lambda = mu;
-                    mu = ak + (F[F.length-1-k]/F[F.length-1-k+1])*(bk-ak);
+                    mu = ak + (F[F.length-1-k-1]/F[F.length-1-k])*(bk-ak);
 
                 }else{
                     bk = mu;
                     mu = lambda;
-                    lambda = ak + (F[F.length-1-k-1]/F[F.length-1-k+1])*(bk-ak);
+                    lambda = ak + (F[F.length-1-k-2]/F[F.length-1-k])*(bk-ak);
                 }
                 if(k===F.length-3){
                     mu = lambda+epsilon;
