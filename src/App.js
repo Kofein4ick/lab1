@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 import seacrhExtremum from './methods';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts';
 
 
 function App() {
@@ -33,11 +42,16 @@ function App() {
   const epsilonChange=(e)=>{
     setEpsilon( e.target.value);
   }
+
+
+
+
+
   const buttonPush=()=>{
     let teble = seacrhExtremum(method,func,right,left,l,epsilon,n);
     setTable(
     <div className='child'>
-    <table border="1" cellpadding="4" cellspacing="0">
+    <table border="1" cellPadding="4" cellSpacing="0">
       <tr>
         <th>K</th>
         <th>a(k)</th>
@@ -50,9 +64,29 @@ function App() {
       {teble.table}
     </table>
     <div>Оптимальный Х = {teble.optium}</div>
-    <div id='bub'>Оптимальный f(Х) = {teble.func_optium}</div>
+    <div>Оптимальный f(Х) = {teble.func_optium}</div>
+    <div id='bub'>Количество вычислений функции: {teble.count}</div>
+    <LineChart width={window.innerWidth*0.8} height={window.innerHeight*0.8}
+      data={teble.base}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="x" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line type="monotone" dataKey="y" stroke="#8884d8" />
+    </LineChart>
     </div>)
   }
+
+
+
 const typeInp=
 <span>
   <span>
@@ -73,6 +107,7 @@ const typeInp=
   </span>
 </span>
 
+
 const inputs= func==='func1' ? 
 <div className='child'>
   {typeInp}
@@ -83,8 +118,9 @@ const inputs= func==='func1' ?
 </div> : 
 <div className='child'>
   {typeInp}
-</div>
-;
+</div>;
+
+
   return (
     <div className="main">
       <h3 className='child'>Выберите метод</h3>
