@@ -76,11 +76,12 @@ function App() {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="x" />
-      <YAxis />
+      <XAxis dataKey="x" scale={'linear'}/>
+      <YAxis  scale={'linear'} />
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="y" stroke="#8884d8" />
+      <Line type="monotone" dataKey="y1" stroke="#32cd32" />
     </LineChart>
     </div>)
   }

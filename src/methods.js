@@ -25,9 +25,19 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
     epsilon=parseFloat(epsilon);
     let func_in= func==='func1' ? func1 : func2;
     let base_arr=[];
-    for(let i=-12;i<=12;i++){
-        base_arr.push({x:i,y:(func_in(i).toFixed(3)*coef)})
-    };
+    if (func==='func1'){
+        for(let i=-10;i<=-0.2;i++){
+            base_arr.push({x:i,y:(func_in(i).toFixed(3)*coef)});
+        }
+        base_arr.push({x:-0.5,y:(func_in(-0.5).toFixed(3)*coef)});
+        base_arr.push({x:0.5,y1:(func_in(0.5).toFixed(3)*coef)});
+        for(let i=1;i<=10;i++){
+            base_arr.push({x:i,y1:(func_in(i).toFixed(3)*coef)});
+        }}
+    else    
+        {for(let i=-10;i<=10;i++){
+            base_arr.push({x:i,y:(func_in(i).toFixed(3)*coef)});
+        }}
     switch(method){
         case 'binary_search':{
             k=1;
@@ -59,7 +69,14 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             }
             optium=((ak+bk)/2).toFixed(5);
             func_optium=func_in(optium).toFixed(5)*coef;
-            base_arr.push({x:optium,y:func_optium})
+            if ((func==='func1')&&(optium>0)){
+                if(optium<0.5) {base_arr.push({x:optium,y1:-15});base_arr.push({x:-optium,y:15});}
+                else base_arr.push({x:optium,y1:func_optium});
+            }
+            else {
+                if((optium>-0.5) &&(func==='func1')){base_arr.push({x:optium,y:15});base_arr.push({x:-optium,y1:-15});}
+                else base_arr.push({x:optium,y:func_optium});
+            }
             break;
         }
 
@@ -106,7 +123,14 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             }
             optium=((ak+bk)/2).toFixed(5);
             func_optium=func_in(optium).toFixed(5)*coef;
-            base_arr.push({x:optium,y:func_optium})  
+            if ((func==='func1')&&(optium>0)){
+                if(optium<0.5) {base_arr.push({x:optium,y1:-15});base_arr.push({x:-optium,y:15});}
+                else base_arr.push({x:optium,y1:func_optium});
+            }
+            else {
+                if((optium>-0.5) &&(func==='func1')){base_arr.push({x:optium,y:15});base_arr.push({x:-optium,y1:-15});}
+                else base_arr.push({x:optium,y:func_optium});
+            }
             break;
         }
         case 'fibonacci':{
@@ -141,7 +165,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                     mu = lambda;
                     lambda = ak + (F[F.length-1-k-2]/F[F.length-1-k])*(bk-ak);
                 }
-                count+=2;
+                count+=1;
                 if(k===F.length-3){
                     mu = lambda+epsilon;
                     if (func_in(lambda) > func_in(mu)){
@@ -166,7 +190,14 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             }
             optium=((ak+bk)/2).toFixed(5);
             func_optium=func_in(optium).toFixed(5)*coef;
-            base_arr.push({x:optium,y:func_optium})
+            if ((func==='func1')&&(optium>0)){
+                if(optium<0.5) {base_arr.push({x:optium,y1:-15});base_arr.push({x:-optium,y:15});}
+                else base_arr.push({x:optium,y1:func_optium});
+            }
+            else {
+                if((optium>-0.5) &&(func==='func1')){base_arr.push({x:optium,y:15});base_arr.push({x:-optium,y1:-15});}
+                else base_arr.push({x:optium,y:func_optium});
+            }
             break;
         }
     }
