@@ -94,7 +94,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             lambda=ak+(1-alpha)*(bk-ak);
             mu=ak+alpha*(bk-ak);
             k = 0;
-            count=0;
+            count=2;
             table.push(
                 <tr>
                     <td>{k}</td>
@@ -118,7 +118,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                     mu = lambda;
                     lambda = ak + (1 - alpha)*(bk-ak);
                 }
-                count+=2;
+                count+=1;
                 k=k+1;
                 table.push(
                     <tr>
@@ -154,7 +154,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             lambda=ak+(F[F.length-1-2]/F[F.length-1])*(bk-ak);
             mu=ak+(F[F.length-1-1]/F[F.length-1])*(bk-ak);
             k = 0;
-            count=0;
+            count=2;
             table.push(
                 <tr>
                     <td>{k}</td>
@@ -184,7 +184,6 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                         bk = mu;
                     }
                     k++;
-                    count+=2;
                     table.push(
                         <tr>
                             <td>{k}</td>
