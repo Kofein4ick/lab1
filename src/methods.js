@@ -40,13 +40,13 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
         }}
     switch(method){
         case 'binary_search':{
-            k=0;
+            k=1;
             count=0;
             while (1) {
                 if ((Math.abs(bk-ak) <= l)||(k===1000)) {
                     table.push(
                         <tr>
-                            <td>{k}</td>
+                            <td>Res</td>
                             <td>{ak.toFixed(5)}</td>
                             <td>{bk.toFixed(5)}</td>
                             <td>{lambda.toFixed(5)}</td>
