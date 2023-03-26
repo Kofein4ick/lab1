@@ -40,10 +40,20 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
         }}
     switch(method){
         case 'binary_search':{
-            k=1;
+            k=0;
             count=0;
             while (1) {
                 if ((Math.abs(bk-ak) <= l)||(k===1000)) {
+                    table.push(
+                        <tr>
+                            <td>{k}</td>
+                            <td>{ak.toFixed(5)}</td>
+                            <td>{bk.toFixed(5)}</td>
+                            <td>{lambda.toFixed(5)}</td>
+                            <td>{mu.toFixed(5)}</td>
+                            <td>{func_in(lambda).toFixed(5)*coef}</td>
+                            <td>{func_in(mu).toFixed(5)*coef}</td>
+                        </tr>);
                     break;
                 }
 
@@ -83,7 +93,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
         case 'gold_search':{
             lambda=ak+(1-alpha)*(bk-ak);
             mu=ak+alpha*(bk-ak);
-            k = 1;
+            k = 0;
             count=0;
             table.push(
                 <tr>
@@ -143,7 +153,7 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
             console.log(F.length);
             lambda=ak+(F[F.length-1-2]/F[F.length-1])*(bk-ak);
             mu=ak+(F[F.length-1-1]/F[F.length-1])*(bk-ak);
-            k = 1;
+            k = 0;
             count=0;
             table.push(
                 <tr>
@@ -173,7 +183,18 @@ function seacrhExtremum(method,func,right,left,l,epsilon,n){
                     }else{
                         bk = mu;
                     }
+                    k++;
                     count+=2;
+                    table.push(
+                        <tr>
+                            <td>{k}</td>
+                            <td>{ak.toFixed(5)}</td>
+                            <td>{bk.toFixed(5)}</td>
+                            <td>{lambda.toFixed(5)}</td>
+                            <td>{mu.toFixed(5)}</td>
+                            <td>{func_in(lambda).toFixed(5)*coef}</td>
+                            <td>{func_in(mu).toFixed(5)*coef}</td>
+                        </tr>);
                     break;
                 }
                 k=k+1;
