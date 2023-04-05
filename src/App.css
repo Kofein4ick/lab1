@@ -5,7 +5,14 @@
 
 .child{
     margin-left: 1%;
+    margin-top: 3px;
 }
+
+.child-p{
+    margin-left: 1%;
+    margin-bottom: 20px;
+}
+
 
 .params{
     margin-left: 3px;
