@@ -86,6 +86,7 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
     let str_x='';
     let str_y='';
     let str_sum='';
+    let uspex='';
     while(1){
         let sum=sum_v(y,umnozh_v(d[i],delta[i]));
         let str_d='';
@@ -105,6 +106,15 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
         str_x=str_x+'('+x_temp.toString()+'); ';
         str_y=str_y+'('+y_temp.toString()+'); ';
         str_sum=str_sum+'('+sum_temp.toString()+'); ';
+        let delta_temp;
+        if(f(sum)<f(y)){
+            y=new Array(...sum);
+            delta_temp=alpha*delta[i];
+            uspex='S';
+        }else {
+            delta_temp=beta*delta[i];
+            uspex='F';
+        }
         table.push(
             <tr>
                 <td>{k}</td>
@@ -117,17 +127,11 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
                 <td>{str_d}</td>
                 <td>{str_sum}</td>
                 <td>{f(sum).toFixed(5)}</td>
+                <td>{uspex}</td>
             </tr>);
+        delta[i]=delta_temp;
         str_d='';
         str_x='';str_y='';str_sum='';
-        if(f(sum)<f(y)){
-            y=new Array(...sum);
-            //delta_temp[i]=alpha*delta[i];
-            delta[i]=alpha*delta[i];
-        }else {
-            //delta_temp[i]=beta*delta[i];
-            delta[i]=beta*delta[i];
-        }
         if(i<n){i++;continue;}//shag 3
         if(i==n){//shag3 b
             let fy=f(y);
@@ -194,7 +198,6 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
                             y1=y;i=0;break;
                         }
                     }
-                    
                     //delta=delta_temp;
                 }
             }

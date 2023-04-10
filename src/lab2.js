@@ -60,6 +60,7 @@ function Lab2(){
                 <th>d</th>
                 <th>y+delta*d</th>
                 <th>FuncS</th>
+                <th>Uspex</th>
               </tr>
               {teble.table}
             </table>
