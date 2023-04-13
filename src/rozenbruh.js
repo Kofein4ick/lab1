@@ -122,7 +122,7 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
                 <td>{f(x).toFixed(5)}</td>
                 <td>{i}</td>
                 <td>{str_y}</td>
-                <td>{f(y).toFixed(5)}</td>
+                <td>{f(y_temp).toFixed(5)}</td>
                 <td>{delta[i].toFixed(5)}</td>
                 <td>{str_d}</td>
                 <td>{str_sum}</td>
