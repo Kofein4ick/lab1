@@ -81,7 +81,7 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
     let y=new Array(...x0);
     let k=0;
     let i=0;
-    let n=1;
+    let n= func==='func1' ? 1 : 2;
     let table=[];
     let str_x='';
     let str_y='';
@@ -143,7 +143,8 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
                 let fx=f(x);
                 if(fy<fx){//shag4
                     if(norma(y,x)<=eps){
-                        x=y;break;
+                        x=y;
+                        break;
                     }else{
                         let lambda=[];
                         for(let j=0;j<=n;j++){
@@ -203,6 +204,7 @@ function rozenbruh(func,alph,bet,epsilon,x11,x12,x13,delta1,delta2,delta3){
             }
         }
     }
+    
     let x_temp=new Array(...x);
 
     for(let q=0;q<x.length;q++){
